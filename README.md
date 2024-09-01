@@ -7,11 +7,10 @@
 
 ### Technologies
 
-Tech stack used in the project:
-
-- Google Analytics 4 raw data export to BigQuery
-- dbt (Core)
-- Google Cloud Platform (BigQuery)
+Project Technology Stack:
+- Google Analytics 4 - raw data export directly into BigQuery.
+- dbt (Core) - data transformation and modeling within the analytics workflow.
+- Google Cloud Platform (BigQuery) - primary data warehouse, facilitating scalable storage and analysis of the data.
 
 ### What is attribution (marketing)?
 
