@@ -17,11 +17,11 @@ Project Technology Stack:
 
 Marketing attribution determines which marketing activities (like ads, emails, or social media) had the most impact on a customer’s decision to make a purchase.
 
-For example, a customer sees a Google ad for shoes, clicks a Meta ad, and then buys after visiting the site directly:
+For example, a customer sees a Google Ad for shoes, clicks a Meta Ad, and then buys after visiting the site directly:
 
- - First-Click: Credit goes to the Google Ad, the first interaction.
-- Last Click Non-Direct: Credit goes to the Meta Ad, the last interaction before the direct visit.
-- Linear: Credit is evenly distributed among the Google Ad, Meta Ad, and direct interaction.
+- First-Click: Conversion credit goes to the Google Ad, the first interaction.
+- Last Click Non-Direct: Conversion credit goes to the Meta Ad, the last interaction before the direct visit.
+- Linear: Conversion credit is evenly distributed among the Google Ad, Meta Ad, and direct interaction.
 
 In this project, these three attribution models were used to demonstrate how credit can be assigned. However, companies can develop their own custom attribution models tailored to their specific needs.
 
@@ -29,7 +29,9 @@ In this project, these three attribution models were used to demonstrate how cre
 
 The dbt models are organized into the following folders, in this order: 
 
-`staging -> source -> transformed -> attribution_model -> explore`.
+`staging -> source -> transformed -> attribution_model -> explore`
+
+Models are also referring to the macros (`ga4_select.sql`, `ga4_unnest_key.sql`, `ga4_utm_mapping.sql`)
 
 A more comprehensive overview of the project process is provided in the video below:
 

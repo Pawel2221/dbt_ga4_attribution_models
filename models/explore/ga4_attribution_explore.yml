@@ -1,33 +1,25 @@
 version: 2
 
 models:
-  - name: attribution_explore.sql
+  - name: ga4_attribution_explore.sql
     description: |
       This model aggregates the results of multiple attribution models for GA4 sessions into a single unified table. It includes data from first-click, last-click non-direct, and linear attribution models within defined lookback windows, allowing for a comprehensive comparison of different attribution methods.
     columns:
       - name: order_surrogate_key
-        description: Unique surrogate key for each order, generated from `session_id` and `order_timestamp`. This key is consistent across all included attribution models.
-      - name: user_pseudo_id
-        description: A unique user identifier (`client_id`) automatically generated to identify users. Consistent across all included attribution models.
-      - name: order_timestamp
-        description: Timestamp of the order event. Consistent across all included attribution models.
+        description: Unique surrogate key for each order, generated from `session_id` and `order_timestamp`.
       - name: order_date
-        description: Date of the order event. Consistent across all included attribution models.
+        description: Date of the order event.
       - name: lookback_window
-        description: Lookback window duration (in days) used to capture touchpoints prior to the order. The values are either 30 days or 365 days before the order or key conversion occurred. This is consistent across all included attribution models.
+        description: Lookback window duration (in days) used to capture touchpoints prior to the order. The values are either 30 days or 365 days before the order or key conversion occurred.
       - name: attribution_model
-        description: |
-          Specifies the attribution model applied to the session data. Values can be 'first_click', 'last_click_non_direct', or 'linear', representing the different attribution methods combined in this table.
+        description: Specifies the attribution model applied. In this case, it is the 'linear' attribution model.
       - name: touchpoint_timestamp
-        description: Timestamp of the session (touchpoint) start. Consistent across all included attribution models.
+        description: Timestamp of the session (touchpoint) start.
       - name: attributed_weight
-        description: |
-          The fraction or binary indicator (depending on the model) of the conversion credit assigned to each touchpoint. The value reflects the specific attribution model used:
-          - 1 or 0 for first-click and last-click non-direct models.
-          - A fractional value for the linear model, distributing credit evenly across all touchpoints.
+        description: The fraction of the conversion credit assigned to each touchpoint within the conversion path. This value is evenly distributed among all touchpoints (1 divided by the number of touchpoints).
       - name: utm_source
-        description: The UTM source from the session (touchpoint). Consistent across all included attribution models.
+        description: The UTM source from the session (touchpoint).
       - name: utm_medium
-        description: The UTM medium from the session (touchpoint). Consistent across all included attribution models.
+        description: The UTM medium from the session (touchpoint).
       - name: utm_campaign
-        description: The UTM campaign from the session (touchpoint). Consistent across all included attribution models.
+        description: The UTM campaign from the session (touchpoint).

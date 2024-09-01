@@ -1,5 +1,3 @@
--- Model represents sessionized data (touchpoints) with order details, traffic sources of the session, and details of the first page viewed in the session.
-
 {{
     config(
         materialized = 'table',

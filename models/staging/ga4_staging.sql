@@ -1,5 +1,3 @@
--- Model returns the basic event data from Google Analytics 4 raw data export to BigQuery.
-
 {{
     config(
         materialized = 'incremental',

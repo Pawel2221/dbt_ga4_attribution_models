@@ -1,6 +1,3 @@
--- Model represents the user sessions (touchpoints) of the user journey prior before the order (or key conversion) occurred.
--- It includes the creation of lookback windows (e.g., 30 days, 365 days) to analyze the touchpoints that occurred within these periods before the conversion.
-
 {{
     config(
         materialized= 'table',
