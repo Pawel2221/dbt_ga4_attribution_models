@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: ga4_source.sql
+    description: Consolidated session-level data (referred to as touchpoints) from GA4, including UTM parameters.
+    columns:
+      - name: touchpoint_date
+        description: Date of the first session touchpoint.
+      - name: touchpoint_timestamp
+        description: Timestamp of the first session touchpoint.
+      - name: user_pseudo_id
+        description: A unique user identifier (client_id) automatically generated to identify users.
+      - name: session_id
+        description: A unique identifier for the GA4 user's session.
+      - name: utm_source
+        description: Traffic source of the session.
+      - name: utm_medium
+        description: Traffic medium of the session.
+      - name: utm_campaign
+        description: Campaign associated with the session.
+      - name: order_timestamp
+        description: Timestamp of the order (or key conversion) event.
+      - name: order_date
+        description: Date of the order (or key conversion) event.
+      - name: page_referrer
+        description: Referrer URL of the session.
+      - name: page_location
+        description: Landing page of the session.
+      - name: events
+        description: List of events in the session.

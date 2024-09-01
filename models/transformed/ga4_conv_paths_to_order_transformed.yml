@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: ga4_conv_paths_to_order.sql
+    description: Generates conversion paths for GA4 sessions, including touchpoints within defined lookback windows leading up to an order (or key conversion) event.
+    columns:
+      - name: order_surrogate_key
+        description: Unique surrogate key for each order, generated from session_id and order_timestamp.
+      - name: user_pseudo_id
+        description: A unique user identifier (client_id) automatically generated to identify users.
+      - name: order_timestamp
+        description: Timestamp of the order event.
+      - name: order_date
+        description: Date of the order event.
+      - name: lookback_window
+        description: Lookback window duration (in days) used to capture touchpoints prior to the order (either 30 days or 365 days before the order or key conversion occurred).
+      - name: conv_path
+        description: Array of structs containing the sequence of touchpoints, including timestamp, UTM source, medium, and campaign, within the defined lookback window before the order or key conversion event.
+

@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: linear_attribution_model.sql
+    description: |
+      This model calculates linear attribution for GA4 sessions. It generates conversion paths for user sessions leading up to an order (or key conversion) event and applies a linear attribution model within defined lookback windows.
+      Linear attribution assigns equal credit for the conversion to all touchpoints in the user's conversion journey that lead to the conversion. This approach distributes the attribution weight evenly across all interactions.
+    columns:
+      - name: order_surrogate_key
+        description: Unique surrogate key for each order, generated from `session_id` and `order_timestamp`.
+      - name: user_pseudo_id
+        description: A unique user identifier (`client_id`) automatically generated to identify users.
+      - name: order_timestamp
+        description: Timestamp of the order event.
+      - name: order_date
+        description: Date of the order event.
+      - name: lookback_window
+        description: Lookback window duration (in days) used to capture touchpoints prior to the order. The values are either 30 days or 365 days before the order or key conversion occurred.
+      - name: conv_path
+        description: Array of structs containing the sequence of touchpoints, including timestamp, UTM source, medium, and campaign, within the defined lookback window before the order or key conversion event.
+      - name: attribution_model
+        description: Specifies the attribution model applied. In this case, it is the 'linear' attribution model.
+      - name: touchpoint_timestamp
+        description: Timestamp of the session (touchpoint) start.
+      - name: path_length
+        description: The number of touchpoints within the defined lookback window that are considered for attribution.
+      - name: attributed_weight
+        description: The fraction of the conversion credit assigned to each touchpoint within the conversion path. This value is evenly distributed among all touchpoints (1 divided by the number of touchpoints).
+      - name: utm_source
+        description: The UTM source from the session (touchpoint).
+      - name: utm_medium
+        description: The UTM medium from the session (touchpoint).
+      - name: utm_campaign
+        description: The UTM campaign from the session (touchpoint).

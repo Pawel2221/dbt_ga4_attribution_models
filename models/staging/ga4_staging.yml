@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: ga4
+    schema: test
+    tables:
+      - name: events
+        identifier: events_* 
+
+
+models:
+  - name: ga4_staging.sql
+    description: Contains the basic event data from the Google Analytics 4 property.
+    columns:
+      - name: event_date_dt
+        description: The date extracted from the event timestamp.
+      - name: event_timestamp
+        description: The timestamp of the event.
+      - name: event_name
+        description: The name of the event.
+      - name: user_pseudo_id
+        description: A unique user identifier (client_id) automatically generated to identify users.
+      - name: session_id
+        description: A unique identifier for the GA4 user's session.
+      - name: is_with_order
+        description: Timestamp of the order or key conversion, or NULL if not applicable.
+      - name: page_location
+        description: The URL of the page where the event occurred.
+      - name: page_referrer
+        description: The URL of the previous page that referred to the current page where the event occurred.
+      - name: source_param
+        description: The default source parameter of the traffic source that led to the event.
+
+
+
+
+

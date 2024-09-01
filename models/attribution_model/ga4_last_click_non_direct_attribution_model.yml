@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: last_click_non_direct_attribution_model.sql
+    description: |
+      This model calculates last-click non-direct attribution for GA4 sessions. It generates conversion paths for user sessions leading up to an order (or key conversion) event and applies a last-click non-direct attribution model within defined lookback windows.
+      Last-click non-direct attribution assigns full credit for the conversion to the last non-direct touchpoint (e.g., the last ad or website visit that wasn't direct) in the user's conversion journey that leads to the conversion. If no non-direct touchpoints are present, the last direct touchpoint receives the credit.
+    columns:
+      - name: order_surrogate_key
+        description: Unique surrogate key for each order, generated from `session_id` and `order_timestamp`.
+      - name: user_pseudo_id
+        description: A unique user identifier (`client_id`) automatically generated to identify users.
+      - name: order_timestamp
+        description: Timestamp of the order event.
+      - name: order_date
+        description: Date of the order event.
+      - name: lookback_window
+        description: Lookback window duration (in days) used to capture touchpoints prior to the order. The values are either 30 days or 365 days before the order or key conversion occurred.
+      - name: conv_path
+        description: Array of structs containing the sequence of touchpoints, including timestamp, UTM source, medium, and campaign, within the defined lookback window before the order or key conversion event.
+      - name: attribution_model
+        description: Specifies the attribution model applied. In this case, it is the 'last_click_non_direct' attribution model.
+      - name: touchpoint_timestamp
+        description: Timestamp of the session (touchpoint) start.
+      - name: is_direct_interaction
+        description: Boolean indicator of whether the touchpoint was a direct interaction (i.e., `utm_source` is '(direct)').
+      - name: non_direct_ranking
+        description: Rank of the touchpoint among non-direct interactions, ordered by the most recent touchpoint within the lookback window.
+      - name: attributed_weight
+        description: |
+          Binary indicator (0 or 1) showing whether the touchpoint is attributed to the conversion based on the last-click non-direct attribution model. A value of 1 indicates that the touchpoint is either the last non-direct one within the lookback window, or, if there are no non-direct interactions, the last direct touchpoint.
+      - name: utm_source
+        description: The UTM source from the session (touchpoint).
+      - name: utm_medium
+        description: The UTM medium from the session (touchpoint).
+      - name: utm_campaign
+        description: The UTM campaign from the session (touchpoint).
