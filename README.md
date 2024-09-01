@@ -27,7 +27,9 @@ In this project, these three attribution models were used to demonstrate how cre
 
 ### Quick Start
 
-The dbt models are organized into the following folders, in this order: `staging -> source -> transformed -> attribution_model -> explore`.
+The dbt models are organized into the following folders, in this order: 
+
+`staging -> source -> transformed -> attribution_model -> explore`.
 
 A more comprehensive overview of the project process is provided in the video below:
 
