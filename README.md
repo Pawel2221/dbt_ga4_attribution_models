@@ -33,8 +33,6 @@ The dbt models are organized into the following folders, in this order:
 
 Models are also referring to the macros (`ga4_select.sql`, `ga4_unnest_key.sql`, `ga4_utm_mapping.sql`)
 
-A more comprehensive overview of the project process is provided in the video below:
-
 ### Desired outcome
 
 The goal is to create a ready-to-visualize table, `attribution_explore`, that evaluates the effectiveness of various marketing channels using custom-developed attribution models.
