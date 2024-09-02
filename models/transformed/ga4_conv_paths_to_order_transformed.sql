@@ -93,5 +93,5 @@ SELECT
         utm_campaign
     )) AS conv_path
 FROM lookback_windows
-{{ dbt_utils.group_by(n=6) }}
+{{ dbt_utils.group_by(n=5) }}
 
